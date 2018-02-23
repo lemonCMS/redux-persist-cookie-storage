@@ -32,7 +32,7 @@ function CookieStorage(options) {
 }
 
 CookieStorage.prototype.getItem = function (key, callback) {
-  var item = this.cookies.get(this.keyPrefix + key) || 'null';
+  var item = this.cookies.get(this.keyPrefix + key) || null;
   if (callback) {
     callback(null, item);
   }
