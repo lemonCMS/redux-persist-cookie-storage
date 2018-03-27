@@ -77,7 +77,11 @@ CookieStorage.prototype.getAllKeys = function (callback) {
 
   var result = [];
   if (cookie) {
-    result = JSON.parse(cookie);
+    if (typeof cookie === 'string') {
+      result = JSON.parse(cookie);
+    } else {
+      result = cookie;
+    }
   }
 
   if (callback) {
@@ -86,4 +90,4 @@ CookieStorage.prototype.getAllKeys = function (callback) {
   return Promise.resolve(result);
 }
 
-module.exports = CookieStorage
+module.exports = CookieStorage;
