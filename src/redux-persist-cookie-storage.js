@@ -56,7 +56,7 @@ CookieStorage.prototype.removeItem = function (key, callback) {
   if (typeof this.cookies.remove  === 'function') {
     this.cookies.remove(this.keyPrefix + key);
   } else if(typeof this.cookies.expire  === 'function') {
-    this.cookies.remove(this.keyPrefix + key);
+    this.cookies.expire(this.keyPrefix + key);
   }
 
   return this.getAllKeys().then(function (allKeys) {
